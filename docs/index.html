@@ -44,7 +44,7 @@
       moved: -1
     },
     {
-      ring: 1,
+      ring: 0,
       label: "Kotlin",
       moved: 1
     },
@@ -63,7 +63,7 @@
       label: "Visual Basic",
       moved: 0
     },
-    
+
   ].map(it => ({...it, quadrant: 0}));
 
   const frameworks = [
@@ -138,7 +138,7 @@
       moved: -1
     },
     {
-      ring: 2,
+      ring: 1,
       label: "Prisma",
       moved: +1
     },
@@ -152,6 +152,16 @@
       label: "Angular JS",
       moved: -1
     },
+    {
+      ring: 3,
+      label: 'Quarkus',
+      moved: 1
+    },
+    {
+      ring: 3,
+      label: 'Quarkus',
+      moved: 1
+    }
 
   ].map(it => ({...it, quadrant: 0}))
 
@@ -189,6 +199,11 @@
     {
       ring: 0,
       label: "Mongo DB",
+      moved: 0
+    },
+    {
+      ring: 0,
+      label: "Postgres DB",
       moved: 0
     },
     {
@@ -262,7 +277,7 @@
       label: "AWS",
       moved: 0
     },
-    
+
     {
       ring: 0,
       label: "Elastic Stack",
@@ -289,7 +304,7 @@
       moved: 0
     },
   ].map(it => ({...it, quadrant: 2}))
-  
+
   const techniques = [
     {
       ring: 0,
