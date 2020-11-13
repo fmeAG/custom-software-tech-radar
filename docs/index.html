@@ -63,7 +63,11 @@
       label: "Visual Basic",
       moved: 0
     },
-
+    {
+      ring: 3,
+      label: "Grails",
+      moved: 0
+    },
   ].map(it => ({...it, quadrant: 0}));
 
   const frameworks = [
@@ -167,7 +171,7 @@
 
   const tools = [
     {
-      ring: 0,
+      ring: 2,
       label: "Open API",
       moved: 0
     },
@@ -184,11 +188,6 @@
     {
       ring: 0,
       label: "Terraform",
-      moved: 0
-    },
-    {
-      ring: 0,
-      label: "Ansible",
       moved: 0
     },
     {
@@ -247,7 +246,7 @@
       moved: 0
     },
     {
-      ring: 1,
+      ring: 2,
       label: "AWS Sagemaker",
       moved: 0
     },
@@ -366,6 +365,12 @@
       label: "Mob-Programming",
       moved: 1
     },
+    {
+      ring: 2,
+      label: "Diagrams as Code",
+      moved: 0
+    },
+
   ].map(it => ({...it, quadrant: 3}))
 
 
@@ -379,7 +384,7 @@ radar_visualization({
     grid: "#bbb",
     inactive: "#ddd"
   },
-  title: "fme AG Tech Radar — April 2020",
+  title: "fme AG Tech Radar — November 2020",
   quadrants: [
     { name: "Languages & Frameworks" },
     { name: "Tools" },
