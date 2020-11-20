@@ -8,9 +8,9 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "eslint": "^5.7.0",
-    "htmllint": "^0.7.2"
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.13.0",
+    "htmllint": "^0.8.0"
   },
   "scripts": {
     "start": "browser-sync docs -w",

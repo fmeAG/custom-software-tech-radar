@@ -171,12 +171,12 @@
 
   const tools = [
     {
-      ring: 2,
+      ring: 0,
       label: "Open API",
       moved: 0
     },
     {
-      ring: 0,
+      ring: 3,
       label: "Maven",
       moved: 0
     },
@@ -192,11 +192,6 @@
     },
     {
       ring: 0,
-      label: "AWS CloudFormation",
-      moved: 0
-    },
-    {
-      ring: 0,
       label: "Mongo DB",
       moved: 0
     },
@@ -208,17 +203,22 @@
     {
       ring: 3,
       label: "Oracle DB",
+      moved: 0
+    },
+    {
+      ring: 3,
+      label: "Apache Solr",
       moved: -1
     },
     {
-      ring: 0,
-      label: "Apache Solr",
+      ring: 1,
+      label: "Redis",
       moved: 0
     },
     {
-      ring: 0,
-      label: "Redis",
-      moved: 0
+      ring: 1,
+      label: "Sentry",
+      moved: 1
     },
     {
       ring: 0,
@@ -231,23 +231,13 @@
       moved: 1
     },
     {
-      ring: 1,
-      label: "Rabbit MQ",
-      moved: 0
-    },
-    {
-      ring: 1,
+      ring: 0,
       label: "AWS Lambda",
       moved: 0
     },
     {
-      ring: 1,
-      label: "AWS Aurora",
-      moved: 0
-    },
-    {
-      ring: 2,
-      label: "AWS Sagemaker",
+      ring: 0,
+      label: "Azure Functions",
       moved: 0
     },
     {
@@ -261,9 +251,44 @@
       moved: 1
     },
     {
-      ring: 2,
-      label: "Active MQ",
+      ring: 0,
+      label: "Elastic Search",
+      moved: 0
+    },
+    {
+      ring: 3,
+      label: "Jenkins",
+      moved: 0
+    },
+    {
+      ring: 0,
+      label: "Gitlab",
+      moved: 0
+    },
+    {
+      ring: 1,
+      label: "Azure DevOps",
       moved: 1
+    },
+    {
+      ring: 0,
+      label: "NX",
+      moved: 0
+    },
+    {
+      ring: 0,
+      label: "yarn",
+      moved: 0
+    },
+    {
+      ring: 0,
+      label: "npm",
+      moved: 0
+    },
+    {
+      ring: 0,
+      label: "postcss",
+      moved: 0
     },
   ].map(it => ({...it, quadrant: 1}))
   const platforms = [
@@ -281,15 +306,9 @@
       label: "AWS",
       moved: 0
     },
-
     {
       ring: 0,
       label: "Elastic Stack",
-      moved: 0
-    },
-    {
-      ring: 0,
-      label: "Cloud Foundry",
       moved: 0
     },
     {
@@ -298,9 +317,19 @@
       moved: 0
     },
     {
-      ring: 1,
+      ring: 2,
       label: "Istio",
-      moved: 0
+      moved: 1
+    },
+    {
+      ring: 1,
+      label: "Vercel",
+      moved: 1
+    },
+    {
+      ring: 1,
+      label: "Netifly",
+      moved: 1
     },
     {
       ring: 3,
