@@ -16,153 +16,143 @@
 <svg id="radar"></svg>
 
 <script>
+    const ringAdopt = 0;
+    const ringTrial = 1;
+    const ringAssess = 2;
+    const ringHold = 3;
+
   //Entries
   const languages = [
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Java",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringHold,
       label: "JavaScript",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "TypeScript",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringTrial,
       label: "Go",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "C#",
       moved: -1
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Kotlin",
       moved: 1
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "Rust",
       moved: 0
     },
     {
-      ring: 3,
-      label: "PHP",
-      moved: 0
-    },
-    {
-      ring: 3,
-      label: "Visual Basic",
-      moved: 0
-    },
-    {
-      ring: 3,
-      label: "Grails",
+      ring: ringAssess,
+      label: "Python",
       moved: 0
     },
   ].map(it => ({...it, quadrant: 0}));
 
   const frameworks = [
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Spring Boot",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "React JS",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Angular",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringAssess,
       label: "Ionic",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "React Native",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Nest",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "NextJS",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Gatsby JS",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringAssess,
       label: "Flutter",
       moved: 0
     },
     {
-      ring: 1,
-      label: "GraphQL",
-      moved: 1
-    },
-    {
-      ring: 1,
+      ring: ringAssess,
       label: "Vue.js",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Redux",
       moved: -1
     },
     {
-      ring: 1,
+      ring: ringAssess,
       label: "TensorFlow",
       moved: 0
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "Activiti",
       moved: -1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Prisma",
       moved: +1
     },
     {
-      ring: 2,
+      ring: ringTrial,
       label: "Electron",
       moved: -1
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Angular JS",
       moved: -1
     },
     {
-      ring: 3,
+      ring: ringAssess,
       label: 'Quarkus',
       moved: 1
     },
     {
-      ring: 3,
+      ring: ringAssess,
       label: 'Graal VM',
       moved: 1
     }
@@ -171,168 +161,180 @@
 
   const tools = [
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Open API",
       moved: 0
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Maven",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Gradle",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Terraform",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Mongo DB",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Postgres DB",
       moved: 0
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Oracle DB",
       moved: 0
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Apache Solr",
       moved: -1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Redis",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Sentry",
       moved: 1
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Apache Kafka",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "AsciiDoc",
       moved: 1
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "AWS Lambda",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Azure Functions",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "AWS Amplify",
       moved: 0
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "AWS Appsync",
       moved: 1
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Elastic Search",
       moved: 0
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Jenkins",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Gitlab",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Azure DevOps",
       moved: 1
     },
     {
-      ring: 0,
+      ring: ringTrial,
       label: "NX",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "yarn",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "npm",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "postcss",
       moved: 0
     },
+    {
+      ring: ringAdopt,
+      label: "Contentful",
+      moved: 1
+    },
+    {
+      ring: ringTrial,
+      label: "GraphCMS",
+      moved: 1
+    },
   ].map(it => ({...it, quadrant: 1}))
+
   const platforms = [
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Docker",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Kubernetes",
       moved: 0
-    },{
-      ring: 0,
+    },
+    {
+      ring: ringAdopt,
       label: "AWS",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Elastic Stack",
       moved: 0
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Azure",
       moved: 0
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "Istio",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringAdopt,
       label: "Vercel",
       moved: 1
     },
     {
-      ring: 1,
+      ring: ringTrial,
       label: "Netifly",
       moved: 1
     },
     {
-      ring: 3,
+      ring: ringHold,
       label: "Open Stack",
       moved: 0
     },
@@ -340,62 +342,77 @@
 
   const techniques = [
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Documentation as Code",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Infrastructure as Code",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Containerization",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Microservices",
       moved: 0
     },
     {
-      ring: 0,
-      label: "Domain Driven Design",
-      moved: 0
-    },
-    {
-      ring: 0,
+      ring: ringAdopt,
       label: "API first",
       moved: 0
     },
     {
-      ring: 0,
+      ring: ringAdopt,
       label: "Event Driven Architetures",
       moved: 0
     },
     {
-      ring: 0,
-      label: "Reactive Components",
-      moved: 0
-    },
-    {
-      ring: 1,
+      ring: ringAssess,
       label: "Micro Frontends",
       moved: 0
     },
     {
-      ring: 3,
+          ring: ringAdopt,
+          label: "Integration & Unit Tests",
+          moved: 0
+    },
+    {
+          ring: ringAdopt,
+          label: "CI/CD",
+          moved: 0
+    },
+    {
+          ring: ringAdopt,
+          label: "Rest Architectures",
+          moved: 0
+    },
+    {
+          ring: ringAdopt,
+          label: "GraphQL",
+          moved: 0
+    },
+    {
+          ring: ringAdopt,
+          label: "Scrum",
+          moved: 0
+    },
+    {
+      ring: ringHold,
       label: "V-Modell",
       moved: 0
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "Mob-Programming",
       moved: 1
     },
     {
-      ring: 2,
+      ring: ringAssess,
       label: "Diagrams as Code",
       moved: 0
     },

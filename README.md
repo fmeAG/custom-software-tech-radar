@@ -52,7 +52,7 @@ radar_visualization({
    {
       label: "Some Entry",
       quadrant: 3,          // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 2,              // 0,1,2,3 (starting from inside)
+      ring: ringAssess,              // 0,1,2,3 (starting from inside)
       moved: -1             // -1 = moved out (triangle pointing down)
                             //  0 = not moved (circle)
                             //  1 = moved in  (triangle pointing up)
