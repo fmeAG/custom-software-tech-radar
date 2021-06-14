@@ -1,4 +1,4 @@
-<html>
+<html lang='en'>
 
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -46,12 +46,12 @@
     {
       ring: ringTrial,
       label: "C#",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringAdopt,
       label: "Kotlin",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAssess,
@@ -89,7 +89,7 @@
     {
       ring: ringTrial,
       label: "React Native",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
@@ -99,12 +99,12 @@
     {
       ring: ringAdopt,
       label: "NextJS",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
       label: "Gatsby JS",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAssess,
@@ -114,12 +114,12 @@
     {
       ring: ringAssess,
       label: "Vue.js",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
       label: "Redux",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringAssess,
@@ -129,7 +129,7 @@
     {
       ring: ringAssess,
       label: "Activiti",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringTrial,
@@ -139,22 +139,22 @@
     {
       ring: ringTrial,
       label: "Electron",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringHold,
       label: "Angular JS",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringAssess,
       label: 'Quarkus',
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAssess,
       label: 'Graal VM',
-      moved: 1
+      moved: 0
     }
 
   ].map(it => ({...it, quadrant: 0}))
@@ -198,7 +198,7 @@
     {
       ring: ringHold,
       label: "Apache Solr",
-      moved: -1
+      moved: 0
     },
     {
       ring: ringTrial,
@@ -208,7 +208,7 @@
     {
       ring: ringTrial,
       label: "Sentry",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAdopt,
@@ -218,7 +218,7 @@
     {
       ring: ringAdopt,
       label: "AsciiDoc",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAdopt,
@@ -238,7 +238,7 @@
     {
       ring: ringAssess,
       label: "AWS Appsync",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAdopt,
@@ -258,7 +258,7 @@
     {
       ring: ringTrial,
       label: "Azure DevOps",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
@@ -283,13 +283,22 @@
     {
       ring: ringAdopt,
       label: "Contentful",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
       label: "GraphCMS",
-      moved: 1
+      moved: 0
     },
+    {
+      ring: ringAssess,
+      label: 'Debezium',
+      moved: 1
+    }, {
+      ring: ringAssess,
+      label: 'JHipster',
+      moved: 1
+    }
   ].map(it => ({...it, quadrant: 1}))
 
   const platforms = [
@@ -321,17 +330,17 @@
     {
       ring: ringAssess,
       label: "Istio",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAdopt,
       label: "Vercel",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringTrial,
       label: "Netifly",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringHold,
@@ -409,14 +418,23 @@
     {
       ring: ringAssess,
       label: "Mob-Programming",
-      moved: 1
+      moved: 0
     },
     {
       ring: ringAssess,
       label: "Diagrams as Code",
       moved: 0
     },
-
+    {
+      ring: ringAssess,
+      label: "Domain Driven Development (DDD)",
+      moved: 1
+    },
+    {
+      ring: ringAssess,
+      label: "Event Storming",
+      moved: 1
+    },
   ].map(it => ({...it, quadrant: 3}))
 
 
@@ -430,7 +448,7 @@ radar_visualization({
     grid: "#bbb",
     inactive: "#ddd"
   },
-  title: "fme AG Tech Radar — November 2020",
+  title: "fme AG Tech Radar — June 2021",
   quadrants: [
     { name: "Languages & Frameworks" },
     { name: "Tools" },
