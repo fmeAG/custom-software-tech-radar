@@ -1,19 +1,19 @@
 <html lang='en'>
 
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<title>fme Tech Radar</title>
-<link rel="shortcut icon" href="https://www.fme.de/favicon.ico">
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+    <title>fme Tech Radar</title>
+    <link rel='shortcut icon' href='https://www.fme.de/favicon.ico'>
 
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="radar.js"></script>
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src='radar.js'></script>
 
-<link rel="stylesheet" href="radar.css">
+    <link rel='stylesheet' href='radar.css'>
 </head>
 
 <body>
 
-<svg id="radar"></svg>
+<svg id='radar'></svg>
 
 <script>
     const ringAdopt = 0;
@@ -21,498 +21,511 @@
     const ringAssess = 2;
     const ringHold = 3;
 
-  //Entries
-  const languages = [
-    {
-      ring: ringAdopt,
-      label: "Java",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "JavaScript",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "TypeScript",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Go",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "C#",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Kotlin",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Rust",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Python",
-      moved: 0
-    },
-  ].map(it => ({...it, quadrant: 0}));
+    //Entries
+    const languages = [
+        {
+            ring: ringAdopt,
+            label: 'Java',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'JavaScript',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'TypeScript',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Go',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'C#',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Kotlin',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Rust',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Python',
+            moved: 0,
+        },
+    ].map(it => ({ ...it, quadrant: 0 }));
 
-  const frameworks = [
-    {
-      ring: ringAdopt,
-      label: "Spring Boot",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "React JS",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Angular",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Ionic",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "React Native",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Nest",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "NextJS",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Gatsby JS",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Flutter",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Vue.js",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Redux",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "TensorFlow",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Activiti",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Prisma",
-      moved: +1
-    },
-    {
-      ring: ringTrial,
-      label: "Electron",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Angular JS",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: 'Quarkus',
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: 'Graal VM',
-      moved: 0
-    }
+    const frameworks = [
+        {
+            ring: ringAdopt,
+            label: 'Spring Boot',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'React JS',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Angular',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Ionic',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'React Native',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Nest',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'NextJS',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Gatsby JS',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Flutter',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Vue.js',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Redux',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'TensorFlow',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Activiti',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Prisma',
+            moved: +1,
+        },
+        {
+            ring: ringTrial,
+            label: 'Electron',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Angular JS',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Quarkus',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Graal VM',
+            moved: 0,
+        },
 
-  ].map(it => ({...it, quadrant: 0}))
+    ].map(it => ({ ...it, quadrant: 0 }));
 
-  const tools = [
-    {
-      ring: ringAdopt,
-      label: "Open API",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Maven",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Gradle",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Terraform",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Mongo DB",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Postgres DB",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Oracle DB",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Apache Solr",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Redis",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Sentry",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Apache Kafka",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "AsciiDoc",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "AWS Lambda",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Azure Functions",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "AWS Amplify",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "AWS Appsync",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Elastic Search",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Jenkins",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Gitlab",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Azure DevOps",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "NX",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "yarn",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "npm",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "postcss",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Contentful",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "GraphCMS",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: 'Debezium',
-      moved: 1
-    }, {
-      ring: ringAssess,
-      label: 'JHipster',
-      moved: 1
-    }
-  ].map(it => ({...it, quadrant: 1}))
+    const tools = [
+        {
+            ring: ringAdopt,
+            label: 'Open API',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Maven',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Gradle',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Terraform',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Mongo DB',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Postgres DB',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Oracle DB',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Apache Solr',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Redis',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Sentry',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Apache Kafka',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'AsciiDoc',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'AWS Lambda',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Azure Functions',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'AWS Amplify',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'AWS Appsync',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Elastic Search',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Jenkins',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Gitlab',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Azure DevOps',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'NX',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'yarn',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'npm',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'postcss',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Contentful',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'GraphCMS',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Debezium',
+            moved: 1,
+        }, {
+            ring: ringAssess,
+            label: 'JHipster',
+            moved: 1,
+        },
+    ].map(it => ({ ...it, quadrant: 1 }));
 
-  const platforms = [
-    {
-      ring: ringAdopt,
-      label: "Docker",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Kubernetes",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "AWS",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Elastic Stack",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Azure",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Istio",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Vercel",
-      moved: 0
-    },
-    {
-      ring: ringTrial,
-      label: "Netifly",
-      moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "Open Stack",
-      moved: 0
-    },
-  ].map(it => ({...it, quadrant: 2}))
+    const platforms = [
+        {
+            ring: ringAdopt,
+            label: 'Docker',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Kubernetes',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'AWS',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Elastic Stack',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Azure',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Istio',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Vercel',
+            moved: 0,
+        },
+        {
+            ring: ringTrial,
+            label: 'Netifly',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'Open Stack',
+            moved: 0,
+        },
+    ].map(it => ({ ...it, quadrant: 2 }));
 
-  const techniques = [
-    {
-      ring: ringAdopt,
-      label: "Documentation as Code",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Infrastructure as Code",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Containerization",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Microservices",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "API first",
-      moved: 0
-    },
-    {
-      ring: ringAdopt,
-      label: "Event Driven Architetures",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Micro Frontends",
-      moved: 0
-    },
-    {
-          ring: ringAdopt,
-          label: "Integration & Unit Tests",
-          moved: 0
-    },
-    {
-          ring: ringAdopt,
-          label: "CI/CD",
-          moved: 0
-    },
-    {
-          ring: ringAdopt,
-          label: "Rest Architectures",
-          moved: 0
-    },
-    {
-          ring: ringAdopt,
-          label: "GraphQL",
-          moved: 0
-    },
-    {
-          ring: ringAdopt,
-          label: "Scrum",
-          moved: 0
-    },
-    {
-      ring: ringHold,
-      label: "V-Modell",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Mob-Programming",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Diagrams as Code",
-      moved: 0
-    },
-    {
-      ring: ringAssess,
-      label: "Domain Driven Development (DDD)",
-      moved: 1
-    },
-    {
-      ring: ringAssess,
-      label: "Event Storming",
-      moved: 1
-    },
-  ].map(it => ({...it, quadrant: 3}))
+    const techniques = [
+        {
+            ring: ringAdopt,
+            label: 'Documentation as Code',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Infrastructure as Code',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Containerization',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Microservices',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'API first',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Event Driven Architetures',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Micro Frontends',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Integration & Unit Tests',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'CI/CD',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Rest Architectures',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'GraphQL',
+            moved: 0,
+        },
+        {
+            ring: ringAdopt,
+            label: 'Scrum',
+            moved: 0,
+        },
+        {
+            ring: ringHold,
+            label: 'V-Modell',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Mob-Programming',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Diagrams as Code',
+            moved: 0,
+        },
+        {
+            ring: ringAssess,
+            label: 'Domain Driven Development (DDD)',
+            moved: 1,
+        },
+        {
+            ring: ringAssess,
+            label: 'Event Storming',
+            moved: 1,
+        },
+    ].map(it => ({ ...it, quadrant: 3 }));
 
 
+    radar_visualization({
+        svg_id: 'radar',
+        width: 1450,
+        height: 1000,
+        colors: {
+            background: '#fff',
+            grid: '#bbb',
+            inactive: '#ddd',
+        },
+        title: 'fme AG Tech Radar — June 2021',
+        quadrants: [
+            { name: 'Languages & Frameworks' },
+            { name: 'Tools' },
+            { name: 'Platforms' },
+            { name: 'Techniques' },
+        ],
+        rings: [
+            { name: 'ADOPT', color: 'rgb(222,0,75)' },
+            { name: 'TRIAL', color: 'rgb(238,113,0)' },
+            { name: 'ASSESS', color: 'rgb(65,51,139)' },
+            { name: 'HOLD', color: 'rgb(122,112,100)' },
+        ],
+        print_layout: true,
+        // zoomed_quadrant: 0,
 
-radar_visualization({
-  svg_id: "radar",
-  width: 1450,
-  height: 1000,
-  colors: {
-    background: "#fff",
-    grid: "#bbb",
-    inactive: "#ddd"
-  },
-  title: "fme AG Tech Radar — June 2021",
-  quadrants: [
-    { name: "Languages & Frameworks" },
-    { name: "Tools" },
-    { name: "Platforms" },
-    { name: "Techniques" }
-  ],
-  rings: [
-    { name: "ADOPT", color: "rgb(222,0,75)" },
-    { name: "TRIAL", color: "rgb(238,113,0)" },
-    { name: "ASSESS", color: "rgb(65,51,139)" },
-    { name: "HOLD", color: "rgb(122,112,100)" }
-  ],
-  print_layout: true,
-  // zoomed_quadrant: 0,
-
-  //ENTRIES
-  entries: [
-      ...languages,
-      ...frameworks,
-      ...tools,
-      ...platforms,
-      ...techniques,
-  ]
-  //ENTRIES
-});
+        //ENTRIES
+        entries: [
+            ...languages,
+            ...frameworks,
+            ...tools,
+            ...platforms,
+            ...techniques,
+        ],
+        //ENTRIES
+    });
 </script>
 
 <table>
-<tr>
-<td>
+    <tr>
+        <td>
 
-<h3>What is the Tech Radar?</h3>
+            <h3>What is the Tech Radar?</h3>
 
-<p>
-The fme AG Tech Radar is a list of technologies, complemented by an assessment result, called <em>ring assignment</em>. We use four rings with the following semantics:
-</p>
+            <p>
+                The fme AG Tech Radar is a list of technologies, complemented by an assessment result, called <em>ring assignment</em>. We use four rings with the following semantics:
+            </p>
 
-<ul>
-<li><strong>ADOPT</strong> &mdash; Technologies we have high confidence in to serve our purpose, also in large scale. Technologies with a usage culture in production environments built by fme, low risk and recommended to be widely used.</li>
-<li><strong>TRIAL</strong> &mdash; Technologies that we have seen work with success in project work to solve a real problem; first serious usage experience that confirm benefits and can uncover limitations. TRIAL technologies are slightly more risky; some engineers in our organization walked this path and will share knowledge and experiences.</li>
-<li><strong>ASSESS</strong> &mdash; Technologies that are promising and have clear potential value-add for us; technologies worth to invest some research and prototyping efforts in to see if it has impact. ASSESS technologies have higher risks; they are often brand new and highly unproven in our organisation. You will find some engineers that have knowledge in the technology and promote it, you may even find teams that have started a prototyping effort.</li>
-<li><strong>HOLD</strong> &mdash; Technologies not recommended to be used for new projects. Technologies that we think are not (yet) worth to (further) invest in. HOLD technologies should not be used for new projects, but usually can be continued for existing projects.</li>
-</ul>
+            <ul>
+                <li><strong>ADOPT</strong> &mdash; Technologies we have high confidence in to serve our purpose, also in large scale. Technologies with a usage culture in production environments built
+                    by fme, low risk and recommended to be widely used.
+                </li>
+                <li><strong>TRIAL</strong> &mdash; Technologies that we have seen work with success in project work to solve a real problem; first serious usage experience that confirm benefits and
+                    can uncover limitations. TRIAL technologies are slightly more risky; some engineers in our organization walked this path and will share knowledge and experiences.
+                </li>
+                <li><strong>ASSESS</strong> &mdash; Technologies that are promising and have clear potential value-add for us; technologies worth to invest some research and prototyping efforts in to
+                    see if it has impact. ASSESS technologies have higher risks; they are often brand new and highly unproven in our organisation. You will find some engineers that have knowledge in
+                    the technology and promote it, you may even find teams that have started a prototyping effort.
+                </li>
+                <li><strong>HOLD</strong> &mdash; Technologies not recommended to be used for new projects. Technologies that we think are not (yet) worth to (further) invest in. HOLD technologies
+                    should not be used for new projects, but usually can be continued for existing projects.
+                </li>
+            </ul>
 
-</td><td>
+        </td>
+        <td>
 
-<h3>What is the purpose?</h3>
+            <h3>What is the purpose?</h3>
 
-<p>
-The Tech Radar is a tool to inspire and support teams at fme to pick the best technologies for new projects; it provides a platform to share knowledge and experience in technologies, to reflect on technology decisions and continuously evolve our technology landscape. Based on the <a href="https://www.thoughtworks.com/radar">pioneering work of ThoughtWorks</a>, our Tech Radar sets out the changes in technologies that are interesting in software development &mdash; changes that we think our engineering teams should pay attention to and consider using in their projects.
-</p>
+            <p>
+                The Tech Radar is a tool to inspire and support teams at fme to pick the best technologies for new projects; it provides a platform to share knowledge and experience in technologies,
+                to reflect on technology decisions and continuously evolve our technology landscape. Based on the <a href='https://www.thoughtworks.com/radar'>pioneering work of ThoughtWorks</a>, our
+                Tech Radar sets out the changes in technologies that are interesting in software development &mdash; changes that we think our engineering teams should pay attention to and consider
+                using in their projects.
+            </p>
 
-<h3>How do we maintain it?</h3>
+            <h3>How do we maintain it?</h3>
 
-<p>
-The Tech Radar is maintained by the <em>fme's Competence Center Leaders</em> and depends on active participation and input from all engineering teams at fme.
-</p>
+            <p>
+                The Tech Radar is maintained by the <em>fme's Competence Center Leaders</em> and depends on active participation and input from all engineering teams at fme.
+            </p>
 
 
-<p>
-<em>The Tech Radar was created by using <a href="https://github.com/zalando/tech-radar">Zalando's Open Source visualization generator</a></em>
-</p>
+            <p>
+                <em>The Tech Radar was created by using <a href='https://github.com/zalando/tech-radar'>Zalando's Open Source visualization generator</a></em>
+            </p>
 
-</td></tr>
+        </td>
+    </tr>
 </table>
 
 </body>
